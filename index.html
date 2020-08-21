@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Calculator</title>
+      <script type="text/javascript">
+
+      </script>
+      <style>
+        body {
+          background-color: #555
+        }
+        form {
+          background-color: #999;
+
+        }
+        form label,input, button, output{
+          position: relative;
+          left: 50%;
+
+        }
+      </style>
+   </head>
+   <body>
+      <form id="calc">
+           <label for="num1">First number:</label><br>
+           <input type="text" id="num1" name="num1"><br>
+
+           <label for="operator">Operation</label><br>
+           <input list="operator">
+             <datalist id="operator">
+               <option value="+">
+               <option value="-">
+               <option value="x">
+               <option value="/">
+               <option value="square root">
+             </datalist>
+          <br>
+           <label for="num2">Second number:</label><br>
+           <input type="text" id="num2" name="num2"><br>
+           <br>
+           <button onclick="calculate">Calculate</button>
+           <br><br>
+           <output
+           <script>
+           function calculate(operator) {
+             let num1 = document.getElementById("num1").value
+             let num2 = document.getElementById("num2").value
+             var ans;
+             switch(operator) {
+               case "+": //plus
+               ans = num1 + num2
+                  break;
+
+               case "-": //minus
+               ans = num1 - num2
+                 break;
+
+               case "*": // multiply
+               ans = num1 * num2
+                 break;
+
+               case "/": // divide
+               ans = num1 / num2
+                 break;
+               case "square root": // square root
+               ans = Math.sqrt(num1)
+                break;
+               default:
+                 ans = "Please choose an operator"
+             }
+             return ans;
+           }
+
+           </script>
+      </form>
+
+   </body>
+</html>
