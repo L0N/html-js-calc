@@ -1,78 +1,87 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Calculator</title>
-      <script type="text/javascript">
+<head>
+  <title>Calculator Test</title>
+	<script>
+		function show(num){
+			document.getElementById("ans").value+=num
+		}
 
-      </script>
-      <style>
-        body {
-          background-color: #555
-        }
-        form {
-          background-color: #999;
+		function calculate(){
+			let x = document.getElementById("ans").value
+			let y = eval(x)
+			document.getElementById("ans").value = y
+		}
 
-        }
-        form label,input, button, output{
-          position: relative;
-          left: 50%;
+    function sqrt(){
+      let x = document.getElementById("ans").value
+      let y = Math.sqrt(x)
+      document.getElementById("ans").value = y
+    }
 
-        }
-      </style>
-   </head>
-   <body>
-      <form id="calc">
-           <label for="num1">First number:</label><br>
-           <input type="text" id="num1" name="num1"><br>
+		function clr(){
+			document.getElementById("ans").value = ""
+		}
+	</script>
 
-           <label for="operator">Operation</label><br>
-           <input list="operator">
-             <datalist id="operator">
-               <option value="+">
-               <option value="-">
-               <option value="x">
-               <option value="/">
-               <option value="square root">
-             </datalist>
-          <br>
-           <label for="num2">Second number:</label><br>
-           <input type="text" id="num2" name="num2"><br>
-           <br>
-           <button onclick="calculate">Calculate</button>
-           <br><br>
-           <output
-           <script>
-           function calculate(operator) {
-             let num1 = document.getElementById("num1").value
-             let num2 = document.getElementById("num2").value
-             var ans;
-             switch(operator) {
-               case "+": //plus
-               ans = num1 + num2
-                  break;
+	<style>
+    table{
+      background-color: #222;
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+      width:100px;
+      }
 
-               case "-": //minus
-               ans = num1 - num2
-                 break;
+    tr,td {
+      text-align:left;}
 
-               case "*": // multiply
-               ans = num1 * num2
-                 break;
+		input[type="button"]{
+		  background-color:#888;
+		  color: black;
+		  border: solid black 1px;
+		  width:100%
+		}
 
-               case "/": // divide
-               ans = num1 / num2
-                 break;
-               case "square root": // square root
-               ans = Math.sqrt(num1)
-                break;
-               default:
-                 ans = "Please choose an operator"
-             }
-             return ans;
-           }
+		input[type="text"]{
+		  background-color:white;
+		  border: solid black 1px;
+		  width:100%
+		}
+	</style>
+</head>
 
-           </script>
-      </form>
+<body>
+		<table>
+		<tr>
+			<td colspan="4"><input type="text" id="ans"/></td>
+			<td><input type="button" value="c" onclick="clr()"/></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1" onclick="show('1')"/> </td>
+			<td><input type="button" value="2" onclick="show('2')"/> </td>
+			<td><input type="button" value="3" onclick="show('3')"/> </td>
+			<td><input type="button" value="/" onclick="show('/')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="show('4')"/> </td>
+			<td><input type="button" value="5" onclick="show('5')"/> </td>
+			<td><input type="button" value="6" onclick="show('6')"/> </td>
+			<td><input type="button" value="-" onclick="show('-')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" onclick="show('7')"/> </td>
+			<td><input type="button" value="8" onclick="show('8')"/> </td>
+			<td><input type="button" value="9" onclick="show('9')"/> </td>
+			<td><input type="button" value="+" onclick="show('+')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="0" onclick="show('0')"/> </td>
+			<td><input type="button" value="=" onclick="calculate()"/> </td>
 
-   </body>
+      <td><input type="button" value=&#x221A onclick="sqrt()"/> </td>
+			<td><input type="button" value="*" onclick="show('*')"/> </td>
+		</tr>
+	</table>
+</body>
 </html>
